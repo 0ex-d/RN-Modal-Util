@@ -33,7 +33,8 @@ class SelectDrop extends Component {
         showSearchBox: true,
         showCancelButton: false,
         showSelectButton: true,
-        closeBackdrop: true
+        closeBackdrop: true,
+        colorText: "#FFF"
     }
     state = {
         show: false,
@@ -158,7 +159,7 @@ class SelectDrop extends Component {
         let {
             style, modalStyle, title, onSelect, onRemoveItem, popupTitle, colorTheme,
             isSelectSingle, cancelButtonText, selectButtonText, searchPlaceHolderText,
-            selectedTitleStyle, buttonTextStyle, buttonStyle, showSearchBox, showCancelButton, showSelectButton, closeBackdrop
+            selectedTitleStyle, buttonTextStyle, buttonStyle, showSearchBox, showCancelButton, showSelectButton, closeBackdrop, colorText
         } = this.props;
         let { show, selectedItem, preSelectedItem } = this.state;
         /* 
@@ -346,7 +347,7 @@ class SelectDrop extends Component {
                     preSelectedItem.length > 0
                         ? (
                             isSelectSingle
-                                ? <Text style={[styles.selectedTitlte, this.defaultFont, selectedTitleStyle, { color: '#FFF' }]}>{preSelectedItem[0].name}</Text>
+                                ? <Text style={[styles.selectedTitlte, this.defaultFont, selectedTitleStyle, { color: colorText }]}>{preSelectedItem[0].name}</Text>
                                 : <View style={styles.tagWrapper}>
                                     {
                                         preSelectedItem.map((tag, index) => {
@@ -376,7 +377,7 @@ class SelectDrop extends Component {
                                     }
                                 </View>
                         )
-                        : <Text style={[styles.selectedTitlte, this.defaultFont, selectedTitleStyle]}>{title}</Text>
+                        : <Text style={[styles.selectedTitlte, this.defaultFont, selectedTitleStyle, { color: colorText }]}>{title}</Text>
                 }
             </TouchableOpacity>
         );
@@ -452,7 +453,8 @@ SelectDrop.propTypes = {
     showSelectButton: PropTypes.bool,
     closeBackdrop: PropTypes.bool,
     cancelButtonText: PropTypes.string,
-    selectButtonText: PropTypes.string
+    selectButtonText: PropTypes.string,
+    colorText: PropTypes.string
 }
 
 export default SelectDrop;
