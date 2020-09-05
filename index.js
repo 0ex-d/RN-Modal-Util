@@ -34,7 +34,7 @@ class SelectDrop extends Component {
         showCancelButton: false,
         showSelectButton: true,
         closeBackdrop: true,
-        colorText: "#FFF"
+        colorText: "#FFF" // for changing select text-color
     }
     state = {
         show: false,
@@ -113,14 +113,7 @@ class SelectDrop extends Component {
     keyExtractor = (item, idx) => idx.toString();
     renderItem = ({ item, idx }) => {
         let { onSelect, colorTheme, isSelectSingle } = this.props;
-        // let { show, selectedItem, preSelectedItem } = this.state;
 
-        // her
-        // let selectedIds = [], selectedObjectItems = [];
-        //                                 this.state.selectedItem.map(item => {
-        //                                     selectedIds.push(item.id);
-        //                                     selectedObjectItems.push(item);
-        //                                 })
                                         
         return (
             <TouchableOpacity
